@@ -13,7 +13,7 @@ const expressSession = require('express-session')({
 });
 const passport = require('passport');
 
-const chats = require('./routes/api/chats')
+// const chats = require('./routes/api/chats')
 // const users = require('./routes/api/users')
 
 // const UserModel = require('./models/User');
@@ -36,7 +36,7 @@ connectDB();
 // passport.serializeUser(UserModel.serializeUser());
 // passport.deserializeUser(UserModel.deserializeUser());
 
-app.use('/api/chats', chats)
+// app.use('/api/chats', chats)
 
 const frontendBuildPath = path.join(__dirname, 'frontend', 'build');
 const frontendPublicPath = path.join(__dirname, 'frontend', 'public');
