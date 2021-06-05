@@ -1,0 +1,31 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "inference-api-hello-world.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-log": "nodemon app.js > log.txt",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.6",
+    "connect-ensure-login": "^0.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.12.7",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-local-mongoose": "^6.1.0",
+    "path": "^0.12.7",
+    "validation": "^0.0.1"
+  }
+}

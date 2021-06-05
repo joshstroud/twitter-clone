@@ -1,0 +1,190 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* end CSS reset */ 
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.left-sidebar {
+  width: 328px;
+  height: 100vw;
+  color: rgb(28, 30, 33);
+  border-right-style: solid;
+  border-right-color: rgb(229, 229, 229);
+  border-right-width: 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-icon-container {
+  height: 60px;
+}
+
+.create-icon-container .round-box {
+  background: rgb(245, 245, 245);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 20px 20px 20px auto;
+  cursor: pointer;
+}
+
+.create-icon-container .round-box:hover {
+  background: rgb(232, 232, 232);
+}
+
+.left-sidebar .fa-edit {
+  font-size: 24px; 
+}
+
+.sidebar-item {
+  width: 308px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-item.selected {
+  background: rgb(245, 245, 245);
+}
+
+.sidebar-item .text {
+    padding: 20px 0 20px 20px;
+}
+
+.sidebar-item .trash {
+  margin-left: auto;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  background: rgb(245, 245, 245); 
+  border: solid 1px rgb(218, 218, 218);
+  cursor: pointer;
+}
+
+.sidebar-item .fa-trash {
+  font-size: 16px;
+
+}
+
+.sidebar-item .trash:hover {
+  background: rgb(232, 232, 232);
+}
+
+.sidebar-item .id {
+  font-weight: 600;
+}
+
+.messages-container {
+  width: 50vw;
+  border-right: solid;
+  border-right-color: rgb(229, 229, 229);
+  border-right-width: 1px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-header {
+  width: 100%;
+  padding: 20px 0 20px 20px;
+  border-bottom: solid;
+  border-bottom-color: rgb(229, 229, 229);
+  border-bottom-width: 1px; 
+}
+
+.messages {
+  height: 1000px;
+}
+
+.message {
+  padding: 7px 12px 8px;
+  border-radius: 18px;
+}
+
+.message.human {
+  background: rgb(0, 153, 255);
+  color: rgb(255, 255, 255);
+}
+
+.message.bot {
+  background: rgb(228, 230, 235);
+  color: rgb(5, 5, 5);
+}
+
+.messages-input {
+  display: flex;
+  align-items: center;
+}
+
+.messages-input input { 
+  background: rgba(123, 142, 153, 0.1);
+  border-radius: 20px;
+  border-width: 0px;
+  border: none;
+  width: 86%;
+  padding: 10px 10px;
+  margin: 0 10px;
+}
+
+.messages-input .fa-paper-plane {
+  font-size: 24px;
+  color: rgb(0, 153, 255);
+
+}
+
+input:focus {
+  outline: none;
+}
