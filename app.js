@@ -1,7 +1,15 @@
+require('dotenv').config()
+
 const express = require('express');
 
-const connectDB = require('./config/db');
+const db = require('./models/index');
 
+db.sequelize.authenticate()
+    .then(r => console.log('Connected to SQL database'))
+    .catch(err => console.log('Unable to connect to database. Error: ', err));
+
+// use #sync to update table, maybe use a migration for column integrations to save table data
+// db.sequelize.sync();
 
 const path = require('path');
 const cors = require('cors');
@@ -13,8 +21,7 @@ const expressSession = require('express-session')({
 });
 const passport = require('passport');
 
-// const chats = require('./routes/api/chats')
-// const users = require('./routes/api/users')
+const users = require('./routes/api/users');
 
 // const UserModel = require('./models/User');
 
@@ -26,8 +33,6 @@ app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSession);
 
-connectDB();
-
 // cors breaks the api call to hugging face, for some reason
 // app.use(cors());
 
@@ -36,7 +41,7 @@ connectDB();
 // passport.serializeUser(UserModel.serializeUser());
 // passport.deserializeUser(UserModel.deserializeUser());
 
-// app.use('/api/chats', chats)
+app.use('/api/users', users)
 
 const frontendBuildPath = path.join(__dirname, 'frontend', 'build');
 const frontendPublicPath = path.join(__dirname, 'frontend', 'public');
@@ -44,9 +49,14 @@ const frontendPublicPath = path.join(__dirname, 'frontend', 'public');
 app.use(express.static(frontendBuildPath));
 app.use(express.static(frontendPublicPath));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
-});
+// app.get('/', (req, res) => {
+//     res.send('Hello World');
+// });
+
+// Get React frontend
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+// });
 
 const port = process.env.PORT || 8082;
 
