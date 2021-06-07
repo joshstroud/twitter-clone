@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 
 const axios = require('axios');
 const cors = require('cors');
@@ -15,7 +16,12 @@ router.use(bodyParser.json());
 router.use(cors());
 
 router.post('/', (req, res) => {
-        user.create(req.body)
+    generatePasswordDigest(req.body.password)
+        .then(passwordDigest => {
+            let newBody = Object.assign(req.body, { password_digest: passwordDigest });
+            delete newBody.password;
+            return user.create(newBody);
+        })
         .then(createdUser => {
             console.log(`Created user with email ${createdUser.email}`);
             res.json(createdUser);
@@ -51,6 +57,11 @@ router.get('/:userId', (req, res) => {
 });
 
 router.put('/:userId', (req, res) => {
+    if (req.body.password) {
+        
+    } else {
+
+    
     user.update(req.body, {
         where: {
             id: req.params.userId
@@ -67,7 +78,13 @@ router.put('/:userId', (req, res) => {
             console.log('Error updating user: ', err);
             res.status(400).json({ error: 'Unable to get user' });
         })
+    };
 });
 
+
+function generatePasswordDigest(password) {
+    const saltRounds = 10;
+    return bcrypt.hash(password, saltRounds);
+}
 
 module.exports = router;
