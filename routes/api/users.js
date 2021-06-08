@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
-
-const axios = require('axios');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const db = require('../../models/index');
 
-
 const user = db.sequelize.models.User;
+
+const { generatePasswordDigest } = require('../../utils')
 
 router.use(bodyParser.json());
 
@@ -58,10 +56,10 @@ router.get('/:userId', (req, res) => {
 
 router.put('/:userId', (req, res) => {
     if (req.body.password) {
-        
-    } else {
+        console.log('Updating user without password');
+        delete req.body.password;
+    }   
 
-    
     user.update(req.body, {
         where: {
             id: req.params.userId
@@ -76,15 +74,8 @@ router.put('/:userId', (req, res) => {
         })
         .catch(err => {
             console.log('Error updating user: ', err);
-            res.status(400).json({ error: 'Unable to get user' });
+            res.status(400).json({ error: 'Unable to update user' });
         })
-    };
 });
-
-
-function generatePasswordDigest(password) {
-    const saltRounds = 10;
-    return bcrypt.hash(password, saltRounds);
-}
 
 module.exports = router;

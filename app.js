@@ -15,20 +15,23 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session')({
+    // cookies expire after three days, since we are using a leaky memory store
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 3 },
     secret: 'secret',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
 });
-const passport = require('passport');
+// const passport = require('passport');
 
+const session = require('./routes/api/session');
 const users = require('./routes/api/users');
 
 // const UserModel = require('./models/User');
 
 const app = express();
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSession);
@@ -41,7 +44,8 @@ app.use(expressSession);
 // passport.serializeUser(UserModel.serializeUser());
 // passport.deserializeUser(UserModel.deserializeUser());
 
-app.use('/api/users', users)
+app.use('/api/session', session);
+app.use('/api/users', users);
 
 const frontendBuildPath = path.join(__dirname, 'frontend', 'build');
 const frontendPublicPath = path.join(__dirname, 'frontend', 'public');
