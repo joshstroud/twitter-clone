@@ -58,9 +58,9 @@ app.use(express.static(frontendPublicPath));
 // });
 
 // Get React frontend
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+});
 
 const port = process.env.PORT || 8082;
 
