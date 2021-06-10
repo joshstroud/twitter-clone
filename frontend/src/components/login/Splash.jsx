@@ -1,17 +1,14 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import twitterSplashImg from '../../assets/twitter-login-image.png'
 
-class LoginSplash extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
+function Splash(props) {
+    return (
         <div className="login-splash">
             <div className="splash-image">
                 <img src={twitterSplashImg} />
@@ -22,16 +19,15 @@ class LoginSplash extends React.Component {
                     <h1>Happening now</h1>
                     <h3> Join Twitter today.</h3>
 
-                    <a href="#">
-                        <div className="splash-button sign-up-button">Sign up</div>
-                    </a>
-                    <a href="#">
-                        <div className="splash-button log-in-button">Log in</div>
-                    </a>            
+                    <Link to="/login" >
+                        <div className="button primary">Sign up</div>
+                    </Link> 
+                    <Link to="/login" >
+                        <div className="button secondary">Log in</div>
+                    </Link>
                 </div>
         </div>
-        )
-    }
+        );
 }
 
-export default LoginSplash;
+export default Splash;

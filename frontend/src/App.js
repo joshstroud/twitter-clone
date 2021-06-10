@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 // import ShowChat from './components/chat/ShowChat';
-import LoginSplash from './components/login/LoginSplash';
+import Splash from './components/login/Splash';
+import LoginModal from './components/login/LoginModal';
 
 class App extends Component {
   render() {
@@ -11,7 +12,11 @@ class App extends Component {
       <Router>
         <div>
           {/* Hello World (React) */}
-          <Route path='/' component={LoginSplash} />
+          <Switch> 
+            <Route exact path='/' component={Splash} />
+            <Route path='/login' component={LoginModal} />
+            <Route path='/login#signup' component={LoginModal} />
+          </Switch>
         </div>
       </Router>
     );
