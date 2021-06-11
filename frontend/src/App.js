@@ -4,7 +4,8 @@ import './App.css';
 
 // import ShowChat from './components/chat/ShowChat';
 import Splash from './components/login/Splash';
-import LoginModal from './components/login/LoginModal';
+import Login from './components/login/Login';
+import Signup from './components/login/Signup';
 
 class App extends Component {
   render() {
@@ -14,8 +15,8 @@ class App extends Component {
           {/* Hello World (React) */}
           <Switch> 
             <Route exact path='/' component={Splash} />
-            <Route path='/login' component={LoginModal} />
-            <Route path='/login#signup' component={LoginModal} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
           </Switch>
         </div>
       </Router>

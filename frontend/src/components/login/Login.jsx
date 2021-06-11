@@ -46,7 +46,7 @@ function LoginModal(props) {
 
             <main>
                 <FontAwesomeIcon className="twitter-icon" icon={faTwitter} />
-                <h1>{ signupPage ? "Log in to Twitter" : "Sign up for Twitter" }</h1>
+                <h1>Log in to Twitter</h1>
 
                 <div className="input-box">
                     <label htmlFor="username">Email or handle</label>
@@ -61,12 +61,12 @@ function LoginModal(props) {
                 </div>3
 
                 <div className="button primary" onClick={handleSubmit} >
-                    { signupPage ? "Log in" : "Sign up" }
+                    Log in
                 </div>
 
                 <div className="footer-link-container">
-                    <Link className="footer-link" to={ signupPage ? "/login" : "/login#signup" }>
-                    { signupPage ? "Sign up for Twitter" : "Log in to Twitter" } 
+                    <Link className="footer-link" to="/signup">
+                    Sign up for Twitter
                     </Link>
                 </div>
                 {redirect}

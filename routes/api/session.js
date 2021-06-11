@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
             res.json( { status: 'login success' });
         } else {
             console.log(`Incorrect password on login for username "${req.body.username}"`);
-            res.status(400).json( { err: 'Incorrect password', });
+            res.status(400).json( { error: 'Incorrect password', });
         }
     });
 });

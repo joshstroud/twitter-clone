@@ -19,7 +19,7 @@ function Splash(props) {
                     <h1>Happening now</h1>
                     <h3> Join Twitter today.</h3>
 
-                    <Link to="/login" >
+                    <Link to="/signup" >
                         <div className="button primary">Sign up</div>
                     </Link> 
                     <Link to="/login" >

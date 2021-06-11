@@ -26,7 +26,8 @@ router.post('/', (req, res) => {
         })
         .catch(err => {
             console.log('Error creating user: ', err);
-            res.status(400).json({ error: 'Unable to create user' });
+            const errorMessages = err.errors.map(errorObj => errorObj.message);
+            res.status(400).json({ error: errorMessages });
         });
 });
 

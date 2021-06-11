@@ -155,6 +155,12 @@ color: rgb(217, 217, 217);
   text-decoration: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.login-container .flash {
+  color: red;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 20px;
+}
 /* .main {
   width: 100vw;
   height: 100vh;
