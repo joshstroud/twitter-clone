@@ -26,19 +26,37 @@ function LoginModal(props) {
 
     const [redirect, setRedirect] = useState(false);
 
+    const [flashMessage, setFlashMessage] = useState(null);
+
+    // const validateInputs = () => {
+    //     const passwordRegEx = /^(?=.*[A-Za-z])[A-Za-z\d]{6,}$/
+    //     if (!passwordRegEx.test(password.toLowerCase())) {
+    //         return 'Not a valid password. Password is minimum six characters.';
+    //     }
+
+    //     return null;
+    // }
+
     const handleSubmit = (event) => {
+        // const validationMsg = validateInputs();
+
+        // if (validationMsg) {
+        //     setFlashMessage(validationMsg);
+        //     return;
+        // }
+
         // console.log('Login credentials were submitted', `${username}: ${password}`);
         axios.post(`${API_URL}/session`, {
             username,
             password
-        }).then(res => setRedirect(true));
+        }).then(res => setRedirect(true))
+        .catch(error => {
+            console.log(error.response);
+            setFlashMessage(error.response.data.error);
+        })
     }
     
-    const signupPage = (window.location.hash === '#signup');
-
-    if (redirect) {
-        return (<Redirect to="/" />);
-    }
+    // const signupPage = (window.location.hash === '#signup');
 
     return (
         <div className="login-container">
@@ -47,6 +65,8 @@ function LoginModal(props) {
             <main>
                 <FontAwesomeIcon className="twitter-icon" icon={faTwitter} />
                 <h1>Log in to Twitter</h1>
+
+                <div className="flash">{flashMessage}</div>
 
                 <div className="input-box">
                     <label htmlFor="username">Email or handle</label>

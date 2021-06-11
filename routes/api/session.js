@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
         where: {
             [Op.or]: [
                 { email: req.body.username },
-                { handle: req.body.username}
+                { handle: req.body.username }
             ]
         }
     }).then(currentUser => {
@@ -32,6 +32,7 @@ router.post('/', (req, res) => {
             res.status(400).json( { error: 'No user with given username found' });
         }
 
+        console.log(req.body.password, user.password_digest);
         return bcrypt.compare(req.body.password, user.password_digest)
     }).then(isRightPassword => {
         if (isRightPassword) {
