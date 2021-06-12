@@ -11,5 +11,13 @@ module.exports = {
         dialect: "postgres",
         logging: false
     },
-    production: DATABASE_URL
+    production: {
+        username: DB_USERNAME,
+        password: DB_PASSWORD,
+        database: "twitter_clone_production",
+        host: DB_HOST,
+        dialect: "postgres",
+        logging: false,
+        use_env_variable: DATABASE_URL
+    }
 }
