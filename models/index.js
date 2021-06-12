@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const nodemon = require('nodemon');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
@@ -9,7 +10,7 @@ const config = require(__dirname + '/../config/config.js');
 const db = {};
 
 let sequelize;
-sequelize = new Sequelize(config.development);
+sequelize = new Sequelize(config[env]);
 
 fs
   .readdirSync(__dirname)
