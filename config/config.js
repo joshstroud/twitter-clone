@@ -18,6 +18,9 @@ module.exports = {
         host: DB_HOST,
         dialect: "postgres",
         logging: false,
-        use_env_variable: "DATABASE_URL"
+        use_env_variable: "DATABASE_URL",
+        dialectOptions: {
+            ssl: true
+        }
     }
 }
