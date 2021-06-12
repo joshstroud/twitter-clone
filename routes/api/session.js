@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
             res.status(400).json( { error: 'No user with given username found' });
         }
 
-        // console.log(req.body.password, user.password_digest);
+        //  console.log(req.body.password, user.password_digest);
         return bcrypt.compare(req.body.password, user.password_digest)
     }).then(isRightPassword => {
         if (isRightPassword) {
@@ -44,6 +44,9 @@ router.post('/', (req, res) => {
             console.log(`Incorrect password on login for username "${req.body.username}"`);
             res.status(400).json( { error: 'Incorrect password', });
         }
+    }).catch((err) => {
+        console.log('Error logging user in', err);
+        res.status(400).json( { error: 'Error logging user in' });
     });
 });
 

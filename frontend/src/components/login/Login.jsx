@@ -51,7 +51,7 @@ function LoginModal(props) {
             password
         }).then(res => setRedirect(true))
         .catch(error => {
-            console.log(error.response);
+            // console.log(error.response);
             setFlashMessage(error.response.data.error);
         })
     }

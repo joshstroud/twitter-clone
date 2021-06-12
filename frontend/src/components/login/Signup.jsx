@@ -64,23 +64,19 @@ function Signup(props) {
             handle,
             password
         }).then(res => {
-            console.log(email)
+            // console.log(email)
             return axios.post(`${API_URL}/session`, {
                 username: email,
                 password
             });
         }).then(res => setRedirect(true))
         .catch(error => {
-            console.log(error.response.data.error);
+            // console.log(error.response.data.error);
             setFlashMessage(error.response.data.error);
         })
     }
     
     // const signupPage = (window.location.hash === '#signup');
-
-    if (redirect) {
-        return (<Redirect to="/" />);
-    }
 
     return (
         <div className="login-container">

@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-import { API_URL } from '../../constants';
+import { API_URL } from '../../../constants';
 import axios from 'axios';
 
 class LoginModal extends React.Component {
