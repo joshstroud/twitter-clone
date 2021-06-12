@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
             res.status(400).json( { error: 'No user with given username found' });
         }
 
-        console.log(req.body.password, user.password_digest);
+        // console.log(req.body.password, user.password_digest);
         return bcrypt.compare(req.body.password, user.password_digest)
     }).then(isRightPassword => {
         if (isRightPassword) {
