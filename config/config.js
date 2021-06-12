@@ -20,7 +20,10 @@ module.exports = {
         logging: false,
         use_env_variable: "DATABASE_URL",
         dialectOptions: {
-            ssl: true
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
         }
     }
 }
