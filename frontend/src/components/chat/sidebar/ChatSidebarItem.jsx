@@ -3,7 +3,7 @@ import '../../../App.css';
 
 import axios from 'axios';
 
-import { API_URL } from '../../../constants'
+import { process.env.REACT_APP_API_URL } from '../../../constants'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
@@ -17,7 +17,7 @@ class ChatSidebarItem extends Component {
 
     deleteChat() {
         axios
-            .delete(`${API_URL}/chats/${this.props.chatData._id}`)
+            .delete(`${process.env.REACT_APP_API_URL}/chats/${this.props.chatData._id}`)
             .then(res => this.props.updateChat());
     }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../../App.css';
 
-import { API_URL } from '../../../constants'
+import { process.env.REACT_APP_API_URL } from '../../../constants'
 
 import axios from 'axios';
 
@@ -74,7 +74,7 @@ class Messages extends Component {
 
     componentDidMount() {
         // axios
-        //     .get(`${API_URL}/chats/`)
+        //     .get(`${process.env.REACT_APP_API_URL}/chats/`)
         //     .then(res => {
         //         t
         //     })
@@ -88,7 +88,7 @@ class Messages extends Component {
 
     getChat(chatId) {
         axios
-            .get(`${API_URL}/chats/${this.props.chatId}`)
+            .get(`${process.env.REACT_APP_API_URL}/chats/${this.props.chatId}`)
             .then(res => {
                 // console.log(res);
                 this.setState({ chat: res.data })

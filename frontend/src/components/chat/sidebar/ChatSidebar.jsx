@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../../App.css';
 
-import { API_URL } from '../../../constants'
+import { process.env.REACT_APP_API_URL } from '../../../constants'
 import ChatSidebarItem from './ChatSidebarItem';
 
 import axios from 'axios';
@@ -113,7 +113,7 @@ class ChatSidebar extends Component {
 
     getChats() {
         axios
-            .get(`${API_URL}/chats/`)
+            .get(`${process.env.REACT_APP_API_URL}/chats/`)
             .then(res => {
                 this.setState({
                     chats: res.data
@@ -124,7 +124,7 @@ class ChatSidebar extends Component {
     handleCreateClick(event) {
         console.log('click');
         axios
-            .post(`${API_URL}/chats`)
+            .post(`${process.env.REACT_APP_API_URL}/chats`)
             .then(res => {
                 this.getChats();
             })

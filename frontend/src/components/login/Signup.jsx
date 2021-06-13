@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-import { API_URL } from '../../constants';
+// import { process.env.REACT_APP_API_URL } from '../../constants';
 import axios from 'axios';
 
 function Signup(props) {
@@ -59,13 +59,13 @@ function Signup(props) {
         }
         
         // console.log('Login credentials were submitted', `${email}: ${password}`);
-        axios.post(`${API_URL}/users`, {
+        axios.post(`${process.env.REACT_APP_API_URL}/users`, {
             email,
             handle,
             password
         }).then(res => {
             // console.log(email)
-            return axios.post(`${API_URL}/session`, {
+            return axios.post(`${process.env.REACT_APP_API_URL}/session`, {
                 username: email,
                 password
             });

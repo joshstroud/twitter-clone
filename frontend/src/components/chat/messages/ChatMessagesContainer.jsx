@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../../App.css';
 
-import { API_URL } from '../../../constants'
+import { process.env.REACT_APP_API_URL } from '../../../constants'
 
 import axios from 'axios';
 
@@ -22,7 +22,7 @@ class ChatMessagesContainer extends Component {
 
     componentDidMount() {
         // axios
-        //     .get(`${API_URL}/chats/`)
+        //     .get(`${process.env.REACT_APP_API_URL}/chats/`)
         //     .then(res => {
         //         t
         //     })

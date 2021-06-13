@@ -15,7 +15,7 @@ module.exports = {
         username: DB_USERNAME,
         password: DB_PASSWORD,
         database: "twitter_clone_production",
-        host: DB_HOST,
+        host: "localhost",
         dialect: "postgres",
         logging: false,
         use_env_variable: "DATABASE_URL",

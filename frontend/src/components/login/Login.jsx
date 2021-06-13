@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-import { API_URL } from '../../constants';
+// import { process.env.REACT_APP_API_URL } from '../../constants';
 import axios from 'axios';
 
 function LoginModal(props) {
@@ -46,7 +46,7 @@ function LoginModal(props) {
         // }
 
         // console.log('Login credentials were submitted', `${username}: ${password}`);
-        axios.post(`${API_URL}/session`, {
+        axios.post(`${process.env.REACT_APP_API_URL}/session`, {
             username,
             password
         }).then(res => setRedirect(true))

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../../App.css';
 
-import { API_URL } from '../../../constants'
+import { process.env.REACT_APP_API_URL } from '../../../constants'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
@@ -32,7 +32,7 @@ class MessagesTextInput extends Component {
             const message = event.target.value;
             console.log('text input submit', message)
             axios
-                .post(`${API_URL}/chats/${this.props.chatId}`, {
+                .post(`${process.env.REACT_APP_API_URL}/chats/${this.props.chatId}`, {
                     "bot": false,
                     "message": message
                 })

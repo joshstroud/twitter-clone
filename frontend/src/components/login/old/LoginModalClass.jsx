@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-import { API_URL } from '../../../constants';
+// import { process.env.REACT_APP_API_URL } from '../../../constants';
 import axios from 'axios';
 
 class LoginModal extends React.Component {
@@ -24,7 +24,7 @@ class LoginModal extends React.Component {
 
     handleSubmit(event) {
         console.log('Login credentials were submitted', this.state );
-        axios.post(`${API_URL}/session`, { 
+        axios.post(`${process.env.REACT_APP_API_URL}/session`, { 
             username: this.state.username, 
             password: this.state.password 
         }).then( res => {
