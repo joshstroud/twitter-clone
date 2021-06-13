@@ -46,6 +46,7 @@ function LoginModal(props) {
         // }
 
         // console.log('Login credentials were submitted', `${username}: ${password}`);
+        console.log('url:', process.env.REACT_APP_API_URL)
         axios.post(`${process.env.REACT_APP_API_URL}/session`, {
             username,
             password
