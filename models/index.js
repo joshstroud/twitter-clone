@@ -10,9 +10,9 @@ const config = require(__dirname + '/../config/config.js');
 const db = {};
 
 let sequelize;
-sequelize = new Sequelize(config[env]);
+// sequelize = new Sequelize(config[env]);
+sequelize = new Sequelize(config['production']);
 
-console.log('debug:', env, config, sequelize);
 fs
   .readdirSync(__dirname)
   .filter(file => {

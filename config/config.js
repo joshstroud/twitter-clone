@@ -12,18 +12,19 @@ module.exports = {
         logging: false
     },
     production: {
-        username: DB_USERNAME,
-        password: DB_PASSWORD,
-        database: "twitter_clone_production",
+        // username: DB_USERNAME,
+        // password: DB_PASSWORD,
+        // database: "twitter_clone_production",
 //        host: "localhost",
         dialect: "postgres",
         logging: false,
         use_env_variable: "DATABASE_URL",
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
-            }
-        }
+        // dialectOptions: {
+        //     ssl: {
+        //         require: true,
+        //         rejectUnauthorized: false
+        //     }
+        // },
+        logging: false
     }
 }

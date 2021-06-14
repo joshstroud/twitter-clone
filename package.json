@@ -10,6 +10,9 @@
     "dev-log": "nodemon app.js > log.txt",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
