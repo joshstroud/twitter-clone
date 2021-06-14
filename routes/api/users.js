@@ -32,6 +32,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
+    
     user.findAll()
         .then(allUsers => {
             console.log('Getting all users');
