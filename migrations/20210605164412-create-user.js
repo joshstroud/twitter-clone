@@ -18,6 +18,10 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      password_digest: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       description: {
         type: Sequelize.TEXT
       },
