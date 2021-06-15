@@ -11,7 +11,7 @@ const db = {};
 
 let sequelize;
 // sequelize = new Sequelize(config[env]);
-sequelize = new Sequelize(config['production']);
+sequelize = new Sequelize(config[env]);
 
 fs
   .readdirSync(__dirname)
