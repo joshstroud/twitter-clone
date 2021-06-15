@@ -8,6 +8,8 @@ db.sequelize.authenticate()
     .then(r => console.log('Connected to SQL database'))
     .catch(err => console.log('Unable to connect to database. Error: ', err));
 
+db.sequelize.sync();
+
 // use #sync to update table, maybe use a migration for column integrations to save table data
 // db.sequelize.sync();
 
@@ -23,10 +25,15 @@ const expressSession = require('express-session')({
 });
 // const passport = require('passport');
 
-const session = require('./routes/api/session');
+const session = require('./routes/api/session.js');
 const users = require('./routes/api/users');
+const tweets = require('./routes/api/tweets');
 
-// const UserModel = require('./models/User');
+// db.sequelize.models.Tweet.sync ( { alter: true })
+
+// db.sequelize.models.Tweet.drop().then(u => console.log('tweet table dropped'));
+// db.sequelize.models.Tweet.sync ( { alter: true })
+
 
 const app = express();
 
@@ -46,6 +53,7 @@ app.use(expressSession);
 
 app.use('/api/session', session);
 app.use('/api/users', users);
+app.use('/api/tweets', tweets);
 
 const frontendBuildPath = path.join(__dirname, 'frontend', 'build');
 const frontendPublicPath = path.join(__dirname, 'frontend', 'public');
