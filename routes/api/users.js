@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const db = require('../../models/index');
 
-const user = db.sequelize.models.User;
+const User = db.sequelize.models.User;
 
 const { generatePasswordDigest } = require('../../utils')
 
@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
         .then(passwordDigest => {
             let newBody = Object.assign(req.body, { password_digest: passwordDigest });
             delete newBody.password;
-            return user.create(newBody);
+            return User.create(newBody);
         })
         .then(createdUser => {
             console.log(`Created user with email ${createdUser.email}`);
@@ -32,8 +32,8 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    
-    user.findAll()
+
+    User.findAll()
         .then(allUsers => {
             console.log('Getting all users');
             res.json(allUsers);
@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:userId', (req, res) => {
-    user.findByPk(req.params.userId)
+    User.findByPk(req.params.userId)
         .then(currentUser => {
             console.log('Returned user with handle', currentUser.handle);
             res.json(currentUser);
@@ -62,13 +62,13 @@ router.put('/:userId', (req, res) => {
         delete req.body.password;
     }   
 
-    user.update(req.body, {
+    User.update(req.body, {
         where: {
             id: req.params.userId
         }
     })
         .then(u => {
-            return user.findByPk(req.params.userId)
+            return User.findByPk(req.params.userId)
         })
         .then(currentUser => {
             console.log('Updated user with handle', currentUser.handle);
