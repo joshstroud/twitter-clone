@@ -6,6 +6,7 @@ import './App.css';
 import Splash from './components/login/Splash';
 import Login from './components/login/Login';
 import Signup from './components/login/Signup';
+// import Home from './components/home/Home';
 
 class App extends Component {
   render() {
@@ -14,9 +15,10 @@ class App extends Component {
         <div>
           {/* Hello World (React) */}
           <Switch> 
-            <Route exact path='/' component={Splash} />
+            <Route path='/home' component={Home} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
+            <Route exact path='/' component={Splash} />
           </Switch>
         </div>
       </Router>
