@@ -28,6 +28,7 @@ const expressSession = require('express-session')({
 const session = require('./routes/api/session.js');
 const users = require('./routes/api/users');
 const tweets = require('./routes/api/tweets');
+const follows = require('./routes/api/follows')
 
 // db.sequelize.models.Tweet.sync ( { alter: true })
 
@@ -54,6 +55,8 @@ app.use(expressSession);
 app.use('/api/session', session);
 app.use('/api/users', users);
 app.use('/api/tweets', tweets);
+app.use('/api/follows', follows);
+
 
 const frontendBuildPath = path.join(__dirname, 'frontend', 'build');
 const frontendPublicPath = path.join(__dirname, 'frontend', 'public');
