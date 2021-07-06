@@ -80,4 +80,63 @@ router.put('/:userId', (req, res) => {
         })
 });
 
+router.get('/:userId/followed', (req, res) => {
+    let theUser;
+
+    User.findByPk(req.params.userId)
+    .then(user => {
+        theUser = user;
+        return theUser.getFollowerFollows();
+    }).then(follows => {
+
+        const getFollowerPromises = follows.map(follow => {
+            const followerUserId = follow.follower_id;
+            return User.findByPk(followerUserId);
+        });
+        return Promise.all(getFollowerPromises)
+    }).then(followingUsers => {
+        const followingUserHandles = followingUsers.map(user => {
+            if (user) {
+                return user.handle
+            }
+        });
+        console.log(`user handle ${theUser.handle} is followed by users ${followingUserHandles.join(', ')}`);
+
+        res.json(followingUsers);
+    })
+    .catch(err => {
+        console.log(`Error getting following users for user id ${req.params.userId}:\n`, err);
+        res.status(400).json({ error: 'Error fetching following users' });
+    })
+})
+
+router.get('/:userId/following', (req, res) => {
+    let theUser;
+
+    User.findByPk(req.params.userId)
+        .then(user => {
+            theUser = user;
+            return theUser.getFollowingFollows();
+        }).then(follows => {
+            const getFollowedPromises = follows.map(follow => {
+                const followerUserId = follow.user_id;
+                return User.findByPk(followerUserId);
+            });
+            return Promise.all(getFollowedPromises)
+        }).then(followedUsers => {
+            const followedUserHandles = followedUsers.map(user => {
+                if (user) {
+                    return user.handle
+                }
+            });
+            console.log(`User handle ${theUser.handle} is following users ${followedUserHandles.join(', ')}`);
+
+            res.json(followedUsers);
+        })
+        .catch(err => {
+            console.log(`Error getting followed users for user id ${req.params.userId}:\n`, err);
+            res.status(400).json({ error: 'Error fetching followed users' });
+        })
+})
+
 module.exports = router;

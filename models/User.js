@@ -11,6 +11,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasMany(models.Tweet, { as: 'tweets' });
+      User.hasMany(models.Follow, { as: 'followerFollows' });
+      User.hasMany(models.Follow, { as: 'followingFollows', foreignKey: 'follower_id' });
+
+      // User.belongsToMany(models.User, { 
+      //   through: models.Follow, 
+      //   targetKey: 'user_id',
+      //   sourceKey: 'follower_id',
+      //   as: 'followers'});
+      // User.belongsToMany(models.User, {
+      //   through: models.Follow,
+      //   sourceKey: 'follower_id',
+      //   targetKey: 'user_id',
+      //   as: 'followedUsers'
+      // });
     }
   };
   User.init({
