@@ -96,4 +96,4 @@ function LoginModal(props) {
     )
 }
 
-export default LoginModal
+export default LoginModal;

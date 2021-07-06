@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+import LeftSidebar from './LeftSidebar/LeftSidebar'
 
 function Home(props) {
     return (
         <div>
-            Hello world
+            <LeftSidebar />
         </div>
     )
 }

@@ -6,7 +6,7 @@ import './App.css';
 import Splash from './components/login/Splash';
 import Login from './components/login/Login';
 import Signup from './components/login/Signup';
-// import Home from './components/home/Home';
+import Home from './components/home/Home';
 
 class App extends Component {
   render() {

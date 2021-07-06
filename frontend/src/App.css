@@ -300,3 +300,56 @@ color: rgb(217, 217, 217);
 input:focus {
   outline: none;
 }
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 251px;
+  background: rgb(0, 0, 0);
+}
+
+.sidebar-item-container {
+  display: flex;
+  align-items: left;
+  font-size: 20px;
+  font-weight: 700; 
+  color: rgb(217, 217, 217);
+}
+
+.tweet-button-container {
+  background-color: rgb(29, 161, 242);
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 9999px;
+  padding: 0 32px;
+  width: 225px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tweet-button-container .text {
+  color: white;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700
+}
+
+.profile-badge-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-badge-container .name {
+  color: rgb(217, 217, 217);
+  font-size: 15px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.profile-badge-container .handle {
+  color: rgb(110, 118, 125);
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
