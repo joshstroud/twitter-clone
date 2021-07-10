@@ -7,9 +7,12 @@ import RightSidebar from './RightSidebar';
 function Home(props) {
     return (
         <div className="main-container">
+            <div className='horizontal-margin'></div>
             <LeftSidebar />
             <Feed />
             <RightSidebar />
+            <div className='horizontal-margin'></div>
+
         </div>
     )
 }

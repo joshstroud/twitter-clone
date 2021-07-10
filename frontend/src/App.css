@@ -301,6 +301,11 @@ input:focus {
   max-height: 100%;
 }
 
+.main-container .horizontal-margin {
+  width: 100%;
+  background: black;
+}
+
 .sidebar-container {
   display: flex;
   flex-direction: column;
@@ -424,21 +429,58 @@ input:focus {
   display: flex;
   flex-direction: column;
   width: 566px;
-  align-items: center;
-  padding: 0 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
   background: black;
   color: rgb(217, 217, 217);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.feed-container .container {
+.feed-container .borders {
   border: 1px solid rgb(47, 51, 54);
 }
 
+.feed-container .header {
+  display: flex;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  height: 51px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 16px;
+  border-bottom: 0;
+  box-sizing: border-box;
+}
+
+.feed-container .header .icon-container {
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.feed-container .header  .icon-container:last-of-type {
+  margin-left: auto;
+}
+
+.feed-container .header  .icon-container:hover {
+  background: rgba(29, 161, 242, 0.03);
+}
+
+.feed-container .header  .icon {
+  fill: rgb(29, 161, 242);
+  width: 22px;
+  height: 22px;
+}
+
+
+
 .compose-tweet-container {
   padding: 8px 16px 0;
-  width: 100%;
   display: flex;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .compose-tweet-container .profile-image {
@@ -488,7 +530,7 @@ input:focus {
 }
 
 .compose-tweet-container .icon-container:hover {
-  background: rgba(29, 161, 242, 0.05);
+  background: rgba(29, 161, 242, 0.03);
 }
 
 .compose-tweet-container .icon {
@@ -523,4 +565,25 @@ input:focus {
 
 .compose-tweet-container .tweet-button .text {
   padding-top: 1px;
+}
+
+.right-sidebar-container {
+  width: 350px;
+  background: black;
+  color: rgb(217, 217, 217);
+  padding-left: 32px;
+}
+
+.right-sidebar-container .static-image {
+  width: 350px;
+  cursor: not-allowed;
+}
+
+.right-sidebar-container .image-2 {
+  margin-left: -1px;
+  margin-top: 1px;
+}
+.right-sidebar-container .image-3 {
+  margin-left: -1px;
+  margin-top: -4px;
 }

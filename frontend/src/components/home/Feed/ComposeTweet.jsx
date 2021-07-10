@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ProfileImage from '../../../assets/dummy-user-icon-large.png';
 
 import TextareaAutosize from 'react-textarea-autosize';
 function ComposeTweet() {
+
+
     return (
-        <section className="container compose-tweet-container">
-            <img className="profile-image" src={ProfileImage} />
+        <section className="borders compose-tweet-container">
+            <div>
+                <img className="profile-image" src={ProfileImage} />
+            </div>
             <div className="content-container">
                 
                 <TextareaAutosize className="tweet-text-input" type="text" placeholder="What's happening?"/>
