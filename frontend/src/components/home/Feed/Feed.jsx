@@ -1,14 +1,17 @@
 import React from 'react';
 
 import ComposeTweet from './ComposeTweet';
-import TweetCard from './TweetCard';
+import TweetFeed from './tweet-feed/TweetFeed';
 
 function Feed() {
     return (
-        <div>
-            Home
+        <div className="feed-container">
+            <div className="header">
+                <h1>Home</h1>
+            </div>
             <ComposeTweet />
-            <TweetCard />
+            
+            <TweetFeed />
         </div>
     )
 }

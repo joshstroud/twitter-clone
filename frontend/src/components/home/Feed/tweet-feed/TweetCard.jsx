@@ -2,7 +2,7 @@ import React from 'react';
 
 function TweetCard() {
     return (
-        <div>
+        <div className='container'>
             Tweet Card
         </div>
     )
